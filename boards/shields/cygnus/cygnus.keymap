@@ -14,7 +14,6 @@
 #define NUM_L 3
 #define SYM_L 4
 #define FUN_L 5
-#define MED_L 6
 
 / {
     behaviors {
@@ -28,56 +27,75 @@
         };
     };
 
+    combos {
+        compatible = "zmk,combos";
+        combo_bksp {
+            timeout-ms = <50>;
+            key-positions = <17 18>;
+            bindings = <&kp BKSP>;
+        };
+        combo_capslck {
+            timeout-ms = <50>;
+            key-positions = <10 11>;
+            bindings = <&kp CAPS>;
+        };
+        combo_tab {
+            timeout-ms = <50>;
+            key-positions = <11 12>;
+            bindings = <&kp TAB>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         qwerty_layer {
             label = "Qwerty";
             bindings = <
-                &kp Q      &kp W      &kp E       &kp R          &kp T         &kp Y            &kp U          &kp I       &kp O      &kp P
-                &hm LGUI A &hm LALT S &hm LCTRL D &hm LSHFT F    &kp G         &kp H            &hm RSHFT J    &hm RCTRL K &hm LALT L &hm LGUI QUOT
-                &kp Z      &kp X      &kp C       &kp V          &kp B         &kp N            &kp M          &kp COMMA   &kp DOT    &kp FSLH
-                                      &none       &lt NAV_L TAB  &lt OTH_L RET &lt NUM_L SPACE  &lt SYM_L BKSP &none       
+                &kp Q      &kp W      &kp E             &kp R          &kp T            &kp Y            &kp U          &kp I       &kp O      &kp P
+                &hm LGUI A &hm LALT S &hm LCTRL D       &hm LSHFT F    &kp G            &kp H            &hm RSHFT J    &hm RCTRL K &hm LALT L &hm LGUI QUOT
+                &kp Z      &kp X      &kp C             &kp V          &kp B            &kp N            &kp M          &kp COMMA   &kp DOT    &kp FSLH
+                                      &lt NAV_L ESC     &lt NUM_L TAB  &lt SYM_L SPACE  &lt FUN_L RET    &kp BKSP       &lt OTH_L DEL       
             >;
         };
 
         nav_layer {
             label = "Nav";
             bindings = <
-                &trans     &trans     &trans      &trans          &trans       &trans           &trans         &trans      &trans     &trans
-                &trans     &trans     &trans      &trans          &trans       &trans           &kp LARW       &kp DARW    &kp UARW   &kp RARW
-                &trans     &trans     &trans      &trans          &trans       &trans           &kp HOME       &kp PG_DN   &kp PG_UP  &kp END
-                                      &none       &trans          &trans       &kp ESC          &kp DEL        &none          
+                &none     &none         &none       &none          &none         &kp INS         &kp HOME       &kp UARW    &kp END    &none
+                &kp LGUI   &kp LALT     &kp LCTRL   &kp LSHFT      &none         &kp PG_UP       &kp LARW       &kp DARW    &kp RARW   &none
+                &none     &none         &none       &none          &none         &kp PG_DN       &kp HOME       &kp PG_DN   &kp PG_UP  &none
+                                        &trans      &trans         &trans        &trans          &trans         &trans          
             >;
         };
 
         other_layer {
             label = "Other";
             bindings = <
-                &trans	   &trans     &trans      &trans          &trans       &trans           &trans         &trans       &trans       &bt BT_CLR
-                &trans     &trans     &trans      &trans          &trans       &trans           &trans         &trans       &trans       &trans
-                &trans     &trans     &trans      &trans          &trans       &bt BT_SEL 0     &bt BT_SEL 1   &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
-                                      &none       &trans          &trans       &trans           &trans         &none       
+                &none	        &none           &none           &none           &bt BT_CLR      &none           &none         &none       &none       &none
+                &none           &none           &none           &none           &none           &none           &none         &none       &none       &none
+                &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4    &none           &none         &none       &none       &none
+                                &trans           &trans          &trans          &trans          &trans         &trans       
             >;
         };
 
         num_layer {
             label = "Num";
             bindings = <
-                &kp LBKT   &kp N7     &kp N8      &kp N9          &kp RBKT      &trans          &trans         &trans      &trans     &trans
-                &kp SEMI   &kp N4     &kp N5      &kp N6          &kp EQUAL     &trans          &trans         &trans      &trans     &trans
-                &kp GRAVE  &kp N1     &kp N2      &kp N3          &kp BSLH      &trans          &trans         &trans      &trans     &trans
-                                      &none       &kp N0          &kp MINUS     &trans          &trans         &none       
+                &none     &none         &none       &none          &none      &kp LBKT      &kp N7      &kp N8      &kp N9          &kp RBKT   
+                &none     &none         &none       &none          &none      &kp EQUAL     &kp N4      &kp N5      &kp N6          &kp SEMI  
+                &none     &none         &none       &none          &none      &kp BACKSLASH &kp N1      &kp N2      &kp N3          &kp GRAVE   
+                                        &trans       &trans        &trans     &trans        &kp N0      &trans       
             >;
         };
 
         sym_layer {
             label = "Sym";
             bindings = <
-                &kp LBRC     &kp LS(N7)  &kp LS(N8)  &kp LS(N9) &kp RBRC        &trans &trans   &trans    &trans    &trans
-                &kp COLON    &kp LS(N4)  &kp LS(N5)  &kp LS(N6) &kp PLUS        &trans &trans   &trans    &trans    &trans
-                &kp TILDE    &kp LS(N1)  &kp LS(N2)  &kp LS(N3) &kp LS(BSLH)    &trans &trans   &trans    &trans    &trans
-                                         &none       &kp LS(N0) &kp UNDER       &trans &trans   &none          
+                &none     &none         &none       &none          &none    &kp LBRC     &kp LS(N7)  &kp LS(N8)  &kp LS(N9) &kp RBRC    
+                &none     &none         &none       &none          &none    &kp PLUS    &kp LS(N4)  &kp LS(N5)  &kp LS(N6) &kp COLON    
+                &none     &none         &none       &none          &none    &kp PIPE    &kp LS(N1)  &kp LS(N2)  &kp LS(N3) &kp TILDE
+                                        &trans      &trans         &trans   &kp UNDER    &kp LBKT    &kp RBKT          
             >;
         };
 
@@ -88,15 +106,6 @@
                 &kp F11     &kp F4     &kp F5      &kp F6     &kp SLCK          &trans          &trans         &trans      &trans     &trans
                 &kp F10     &kp F1     &kp F2      &kp F3     &kp PAUSE_BREAK   &trans          &trans         &trans      &trans     &trans
                                        &none       &none      &none             &trans          &trans         &none        
-            >;
-        };
-        media_layer {
-            label = "Media";
-            bindings = <
-                &trans	   &trans     &trans      &trans          &trans       &trans           &trans         &trans       &trans       &trans
-                &trans     &trans     &trans      &trans          &trans       &trans           &kp C_PREV     &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT
-                &trans     &trans     &trans      &trans          &trans       &trans           &trans         &trans       &trans       &trans
-                                      &none       &trans          &trans       &kp C_PLAY_PAUSE &kp C_MUTE     &none        
             >;
         };
     };
