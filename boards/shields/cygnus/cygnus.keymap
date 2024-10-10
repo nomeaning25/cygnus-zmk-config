@@ -95,7 +95,7 @@
                 &none     &none         &none       &none          &none    &kp LBRC     &kp LS(N7)  &kp LS(N8)  &kp LS(N9) &kp RBRC    
                 &none     &none         &none       &none          &none    &kp PLUS    &kp LS(N4)  &kp LS(N5)  &kp LS(N6) &kp COLON    
                 &none     &none         &none       &none          &none    &kp PIPE    &kp LS(N1)  &kp LS(N2)  &kp LS(N3) &kp TILDE
-                                        &trans      &trans         &trans   &kp UNDER    &kp LBKT    &kp RBKT          
+                                        &trans      &trans         &trans   &kp UNDER    &kp LPAR    &kp RPAR          
             >;
         };
 
