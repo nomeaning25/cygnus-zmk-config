@@ -31,7 +31,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <9>;
             tapping-term-ms = <200>;
-            bindings = <&kp p>, <&to NAV_L>;
+            bindings = <&kp P>, <&to NAV_L>;
         };
 
         td_lshift: tap_dance_caps_l {
