@@ -29,21 +29,21 @@
 
         td0: tap_dance_home {
             compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <9>;
+            binding-cells = <9>;
             tapping-term-ms = <200>;
             bindings = <&kp P>, <&to NAV_L>;
         };
 
         td_lshift: tap_dance_caps_l {
             compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <13>;
+            binding-cells = <13>;
             tapping-term-ms = <200>;
             bindings = <&hm LSHFT F>, <&sk LSHIFT>, <&kp CAPS>;
         };
 
         td_rshift: tap_dance_caps_r {
             compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <13>;
+            binding-cells = <16>;
             tapping-term-ms = <200>;
             bindings = <&hm RSHFT J>, <&sk RSHIFT>, <&kp CAPS>;
         };
