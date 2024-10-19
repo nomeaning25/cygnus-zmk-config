@@ -14,6 +14,7 @@
 #define NUM_L 3
 #define SYM_L 4
 #define FUN_L 5
+#define GAM_L 6
 
 / {
     behaviors {
@@ -25,24 +26,47 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
+
+        td0: tap_dance_home {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <9>;
+            tapping-term-ms = <200>;
+            bindings = <&kp p>, <&to NAV_L>;
+        };
+
+        td1: tap_dance_caps {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <13>;
+            tapping-term-ms = <200>;
+            bindings = <&kp f>, <&sk LSHIFT>, <&kp CAPS>;
+        };
     };
 
     combos {
         compatible = "zmk,combos";
         combo_bksp {
             timeout-ms = <50>;
+            require-prior-idle-ms = <200>;
             key-positions = <17 18>;
             bindings = <&kp BKSP>;
         };
         combo_capslck {
             timeout-ms = <50>;
+            require-prior-idle-ms = <200>;
             key-positions = <10 11>;
             bindings = <&kp CAPS>;
         };
         combo_tab {
             timeout-ms = <50>;
+            require-prior-idle-ms = <200>;
             key-positions = <11 12>;
             bindings = <&kp TAB>;
+        };
+        combo_home_layer {
+            timeout-ms = <50>;
+            require-prior-idle-ms = <200>;
+            key-positions = <9 33>;
+            bindings = <&to NAV_L>;
         };
     };
 
@@ -73,7 +97,7 @@
             label = "Other";
             bindings = <
                 &none	        &none           &none           &none           &bt BT_CLR      &none           &none         &none       &none       &none
-                &none           &none           &none           &none           &none           &none           &none         &none       &none       &none
+                &none           &none           &none           &none           &none           &none           &tp GAM_L    &none       &none       &none
                 &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4    &none           &none         &none       &none       &none
                                 &trans           &trans          &trans          &trans          &trans         &trans       
             >;
@@ -106,6 +130,16 @@
                 &kp F11     &kp F4     &kp F5      &kp F6     &kp SLCK          &trans          &trans         &trans      &trans     &trans
                 &kp F10     &kp F1     &kp F2      &kp F3     &kp PAUSE_BREAK   &trans          &trans         &trans      &trans     &trans
                                        &none       &none      &none             &trans          &trans         &none        
+            >;
+        };
+
+        gam_layer {
+            label = "Gam";
+            bindings = <
+                &kp Q      &kp W      &kp E             &kp R          &kp T            &kp Z            &kp U          &kp I       &kp O      &kp P
+                &kp A      &kp S      &kp D             &kp F          &kp G            &kp H            &kp J          &kp K       &kp L      &kp QUOT
+                &kp Y      &kp X      &kp C             &kp V          &kp B            &kp N            &kp M          &kp COMMA   &kp DOT    &kp FSLH
+                                      &kp ESC           &kp TAB        &kp SPACE        &kp RET          &kp BKSP       &kp DEL        
             >;
         };
     };
