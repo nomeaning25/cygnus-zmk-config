@@ -29,16 +29,23 @@
 
         td0: tap_dance_home {
             compatible = "zmk,behavior-tap-dance";
-            binding-cells = <9>;
+            #binding-cells = <9>;
             tapping-term-ms = <200>;
             bindings = <&kp p>, <&to NAV_L>;
         };
 
-        td1: tap_dance_caps {
+        td_lshift: tap_dance_caps_l {
             compatible = "zmk,behavior-tap-dance";
-            binding-cells = <13>;
+            #binding-cells = <13>;
             tapping-term-ms = <200>;
-            bindings = <&kp f>, <&sk LSHIFT>, <&kp CAPS>;
+            bindings = <&hm LSHFT F>, <&sk LSHIFT>, <&kp CAPS>;
+        };
+
+        td_rshift: tap_dance_caps_r {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <13>;
+            tapping-term-ms = <200>;
+            bindings = <&hm RSHFT J>, <&sk RSHIFT>, <&kp CAPS>;
         };
     };
 
@@ -77,7 +84,7 @@
             label = "Qwerty";
             bindings = <
                 &kp Q      &kp W      &kp E             &kp R          &kp T            &kp Z            &kp U          &kp I       &kp O      &kp P
-                &hm LGUI A &hm LALT S &hm LCTRL D       &hm LSHFT F    &kp G            &kp H            &hm RSHFT J    &hm RCTRL K &hm LALT L &hm LGUI QUOT
+                &hm LGUI A &hm LALT S &hm LCTRL D       &td_lshift     &kp G            &kp H            &td_rshift     &hm RCTRL K &hm LALT L &hm LGUI QUOT
                 &kp Y      &kp X      &kp C             &kp V          &kp B            &kp N            &kp M          &kp COMMA   &kp DOT    &kp FSLH
                                       &lt NAV_L ESC     &lt NUM_L TAB  &lt SYM_L SPACE  &lt FUN_L RET    &kp BKSP       &lt OTH_L DEL       
             >;
@@ -136,7 +143,7 @@
         gam_layer {
             label = "Gam";
             bindings = <
-                &kp Q      &kp W      &kp E             &kp R          &kp T            &kp Z            &kp U          &kp I       &kp O      &kp P
+                &kp Q      &kp W      &kp E             &kp R          &kp T            &kp Z            &kp U          &kp I       &kp O      td0
                 &kp A      &kp S      &kp D             &kp F          &kp G            &kp H            &kp J          &kp K       &kp L      &kp QUOT
                 &kp Y      &kp X      &kp C             &kp V          &kp B            &kp N            &kp M          &kp COMMA   &kp DOT    &kp FSLH
                                       &kp ESC           &kp TAB        &kp SPACE        &kp RET          &kp BKSP       &kp DEL        
