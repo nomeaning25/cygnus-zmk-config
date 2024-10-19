@@ -29,14 +29,14 @@
 
         td0: tap_dance_home {
             compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <9>;
+            binding-cells = <9>;
             tapping-term-ms = <200>;
             bindings = <&kp p>, <&to NAV_L>;
         };
 
         td1: tap_dance_caps {
             compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <13>;
+            binding-cells = <13>;
             tapping-term-ms = <200>;
             bindings = <&kp f>, <&sk LSHIFT>, <&kp CAPS>;
         };
