@@ -39,14 +39,14 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&hm LSHIFT F>, <&sk LSHIFT>, <&kp CAPS>;
+            bindings = <&mt LSHIFT F>, <&sk LSHIFT>, <&kp CAPS>;
         };
 
         td_rshift: tap_dance_caps_r {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&hm LSHIFT J>, <&sk RSHIFT>, <&kp CAPS>;
+            bindings = <&mt LSHIFT J>, <&sk RSHIFT>, <&kp CAPS>;
         };
     };
 
