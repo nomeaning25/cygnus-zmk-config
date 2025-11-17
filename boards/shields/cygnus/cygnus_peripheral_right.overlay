@@ -7,11 +7,15 @@
 #include "cygnus.dtsi"
 
 &default_transform {
+	col-offset = <6>;
+};
+
+&five_column_transform {
 	col-offset = <5>;
 };
 
 // KSCAN matrix
-&default_kscan {
+&kscan0 {
 	compatible = "zmk,kscan-gpio-matrix";
 	
 	col-gpios
