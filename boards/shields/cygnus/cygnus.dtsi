@@ -29,13 +29,6 @@
         diode-direction = "row2col";
         wakeup-source;
     };
-    
-    keys {
-        compatible = "gpio-keys";
-        on_off_key: on_off_key {
-            gpios = <&pro_micro 19 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        };
-    };
 
     soft_off_direct_scan: soft_off_direct_scan {
         compatible = "zmk,kscan-gpio-direct";
