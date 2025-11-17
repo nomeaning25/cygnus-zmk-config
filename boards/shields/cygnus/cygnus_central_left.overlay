@@ -6,7 +6,7 @@
 
 #include "cygnus.dtsi"
 
-&kscan0 {
+&default_kscan {
 	compatible = "zmk,kscan-gpio-matrix";
 	
 	col-gpios
