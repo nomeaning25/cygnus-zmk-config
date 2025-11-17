@@ -11,7 +11,7 @@
 };
 
 // KSCAN matrix
-&kscan0 {
+&default_kscan {
 	compatible = "zmk,kscan-gpio-matrix";
 	
 	col-gpios
