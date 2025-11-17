@@ -6,4 +6,4 @@
 # distinguish build outputs from each other:
 #
 board: [ "nice_nano_v2" ]
-shield: [ "cygnus_central_dongle dongle_display", "cygnus_central_left", "cygnus_peripheral_left", "cygnus_peripheral_right", "settings_reset"]
+shield: [ "cygnus_central_left", "cygnus_peripheral_right", "settings_reset"]
