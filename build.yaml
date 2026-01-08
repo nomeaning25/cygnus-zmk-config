@@ -5,5 +5,5 @@
 # pass flags to the build command and `artifact-name` to assign a name to
 # distinguish build outputs from each other:
 #
-board: [ "nice_nano_v2" ]
+board: [ "nice_nano" ]
 shield: [ "cygnus_central_left", "cygnus_peripheral_right", "settings_reset"]
